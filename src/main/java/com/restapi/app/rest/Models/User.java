@@ -1,16 +1,15 @@
 
 package com.restapi.app.rest.Models;
 
-import org.springframework.boot.autoconfigure.domain.EntityScan;
-import org.springframework.data.annotation.Id;
+import javax.persistence.*;
 
-import javax.persistance.*;
-@EntityScan
+@Entity
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.INDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     @Column
     private String firstName;
     @Column
