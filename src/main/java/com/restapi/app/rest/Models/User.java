@@ -1,4 +1,3 @@
-
 package com.restapi.app.rest.Models;
 
 import javax.persistence.*;
@@ -18,6 +17,7 @@ public class User {
     private int age;
     @Column
     private String occupation;
+
     public long getId() {
         return id;
     }
@@ -38,7 +38,7 @@ public class User {
         return lastName;
     }
 
-    public void setLastName(String lastNname) {
+    public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
