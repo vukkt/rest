@@ -17,6 +17,7 @@ public class User {
     @Column
     private int age;
     @Column
+    private String occupation;
     public long getId() {
         return id;
     }
@@ -57,5 +58,4 @@ public class User {
         this.occupation = occupation;
     }
 
-    private String occupation;
 }
