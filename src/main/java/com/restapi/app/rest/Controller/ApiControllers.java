@@ -3,6 +3,7 @@ package com.restapi.app.rest.Controller;
 import com.restapi.app.rest.Models.User;
 import com.restapi.app.rest.Repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,12 +26,14 @@ public class ApiControllers {
         return userRepo.findAll();
     }
 
+    @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(value = "/save")
     public String saveUser(@RequestBody User user) {
         userRepo.save(user);
         return "Saved...";
     }
 
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     @PutMapping(value = "update/{id}")
     public String updateUser(@PathVariable long id, @RequestBody User user) {
         User updateUser = userRepo.findById(id).get();
@@ -42,6 +45,7 @@ public class ApiControllers {
         return "Updated...";
     }
 
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping(value = "/delete/{id}")
     public String deleteUser(@PathVariable long id) {
         User deleteUser = userRepo.findById(id).get();
